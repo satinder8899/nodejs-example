@@ -7,6 +7,6 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "http": "^0.0.1"
+    
   }
 }
