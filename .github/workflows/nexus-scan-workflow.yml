@@ -25,5 +25,5 @@ jobs:
           password: ${{ secrets.LIFECYCLE_PASSWORD }}
           application-id: ade-portal
           stage: release
-          scan-targets: package.json
+          scan-targets: package-lock.json
           #debug: true
