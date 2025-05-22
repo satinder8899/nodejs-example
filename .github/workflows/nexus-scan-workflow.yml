@@ -1,0 +1,29 @@
+name: Nexus Lifecycle Scan
+on:
+  push:
+    branches: ['main']
+jobs:
+  sonatype-cli:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # some steps are omitted...
+      # Check out your code
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          
+      # Perform an evaluation
+      - name: Run evaluate action
+        id: evaluate
+        uses: sonatype/actions/evaluate@v1
+        with:
+          iq-server-url: ${{ secrets.LIFECYCLE_URL }}
+          username: ${{ secrets.LIFECYCLE_USERNAME }}
+          password: ${{ secrets.LIFECYCLE_PASSWORD }}
+          application-id: ade-portal
+          stage: release
+          scan-targets: package.json
+          #debug: true
