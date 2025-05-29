@@ -23,7 +23,7 @@ jobs:
           iq-server-url: ${{ secrets.LIFECYCLE_URL }}
           username: ${{ secrets.LIFECYCLE_USERNAME }}
           password: ${{ secrets.LIFECYCLE_PASSWORD }}
-          application-id: nodejs
+          application-id: node
           stage: release
           scan-targets: package-lock.json
           #debug: true
